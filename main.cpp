@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-
+#include <cmath>
 int main()
 {
     const double rate1 = 1.10;
@@ -15,7 +15,22 @@ int main()
     cin >> weight >> distance;
 
     // TODO
-
+    if (weight <= 0 || weight > 20 || distance <= 0){
+        cout << "Invalid" << endl;
+        return 0;
+    }
+    if (weight <= 2){ 
+        rate = rate1;
+    }
+    else if (weight <= 6){
+        rate = rate2;
+    }else if (weight <= 10){
+        rate = rate3;
+    }
+    else {
+        rate = rate4;
+    }
+    total_charge = ceil(distance / 500.0) * rate;
     cout << setw(10) << left << setprecision(2) << fixed;
     cout << total_charge << endl;
 
